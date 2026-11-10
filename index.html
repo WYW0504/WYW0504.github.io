@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>青岛两天一夜 · 两人 1500 卧铺版</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312495c'/%3E%3Cpath d='M4 22c4-6 8-6 12 0 4-6 8-6 12 0' stroke='%23f4efe6' stroke-width='2.5' fill='none'/%3E%3Ccircle cx='23' cy='10' r='2.5' fill='%23a8402c'/%3E%3C/svg%3E">
+<style>
+:root{
+  --sea:#12495c;
+  --sea-deep:#0b3442;
+  --brick:#a8402c;
+  --sand:#f4efe6;
+  --paper:#fbf8f2;
+  --ink:#1b1a17;
+  --ink-soft:#4a463f;
+  --muted:#7d7669;
+  --line:#d9d0c1;
+  --line-soft:#e8e1d4;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--sand);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.75;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 80px;}
+.serif{font-family:"Songti SC","Noto Serif SC","SimSun",Georgia,serif;}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--sea-deep);color:var(--paper);overflow:hidden;}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;opacity:.42;}
+.hero-inner{position:relative;max-width:760px;margin:0 auto;padding:44px 18px 38px;}
+.kicker{
+  font-size:12px;letter-spacing:.16em;color:#cdd9dc;
+  border-bottom:1px solid rgba(244,239,230,.28);
+  display:inline-block;padding-bottom:6px;margin-bottom:20px;
+}
+.hero h1{
+  font-size:38px;line-height:1.18;margin:0 0 14px;font-weight:600;letter-spacing:.02em;
+}
+.hero h1 span{display:block;font-size:19px;font-weight:400;letter-spacing:.06em;color:#c8d6d9;margin-top:10px;}
+.hero-note{font-size:13.5px;line-height:1.7;color:#e3e9ea;max-width:34em;margin:0;}
+
+/* ---------- fact bar ---------- */
+.facts{background:var(--paper);border-bottom:1px solid var(--line);}
+.facts-inner{max-width:760px;margin:0 auto;padding:0 18px;}
+.facts-grid{display:grid;grid-template-columns:repeat(2,1fr);}
+.fact{padding:18px 4px 18px 0;border-right:1px solid var(--line-soft);}
+.fact:nth-child(2n){border-right:none;padding-left:16px;}
+.fact:nth-child(-n+2){border-bottom:1px solid var(--line-soft);}
+.fact-k{font-size:11.5px;letter-spacing:.1em;color:var(--muted);display:block;margin-bottom:5px;}
+.fact-v{font-size:19px;font-weight:600;color:var(--sea);line-height:1.35;}
+.fact-s{display:block;font-size:12px;color:var(--muted);margin-top:3px;}
+
+/* ---------- section ---------- */
+section{padding:44px 0 6px;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:8px;}
+.sec-num{
+  font-size:12px;letter-spacing:.08em;color:var(--brick);
+  border:1px solid var(--brick);padding:1px 7px;border-radius:2px;flex:none;
+}
+.sec-title{font-size:23px;font-weight:600;margin:0;letter-spacing:.01em;}
+.sec-sub{font-size:13.5px;color:var(--muted);margin:0 0 22px;line-height:1.7;}
+
+/* ---------- verdict ---------- */
+.verdict{background:var(--sea);color:var(--paper);padding:26px 20px;margin-top:34px;}
+.verdict h3{margin:0 0 10px;font-size:18px;font-weight:600;}
+.verdict p{margin:0;font-size:14px;line-height:1.85;color:#e6ecee;}
+.verdict p + p{margin-top:10px;}
+.verdict strong{color:#fff;font-weight:600;}
+
+/* ---------- transport card ---------- */
+.tcard{background:var(--paper);border:1px solid var(--line);margin-bottom:16px;}
+.tcard-top{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:10px 16px;border-bottom:1px dashed var(--line);
+}
+.tcard-tag{font-size:11.5px;letter-spacing:.12em;color:var(--paper);background:var(--brick);padding:2px 8px;}
+.tcard-day{font-size:12px;color:var(--muted);}
+.route{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:18px 16px;}
+.route-l{text-align:right;}
+.route-r{text-align:left;}
+.route-time{font-size:26px;font-weight:600;line-height:1.1;letter-spacing:.01em;}
+.route-st{font-size:12.5px;color:var(--muted);margin-top:2px;}
+.route-mid{text-align:center;flex:none;}
+.route-dur{font-size:11px;color:var(--muted);letter-spacing:.04em;}
+.route-line{width:56px;height:1px;background:var(--line);margin:4px auto;position:relative;}
+.route-line::after{content:"";position:absolute;right:-1px;top:-2px;width:5px;height:5px;border-radius:50%;background:var(--brick);}
+.tcard-body{padding:0 16px 16px;}
+.trow{display:flex;justify-content:space-between;gap:14px;font-size:13.5px;padding:6px 0;border-bottom:1px dotted var(--line-soft);}
+.trow:last-child{border-bottom:none;}
+.trow b{font-weight:600;color:var(--sea);flex:none;}
+.tnote{font-size:12.5px;color:var(--muted);line-height:1.75;margin:10px 0 0;padding-top:10px;border-top:1px solid var(--line-soft);}
+
+/* ---------- timeline ---------- */
+.tl{display:grid;grid-template-columns:46px 18px 1fr;row-gap:0;margin:0 0 6px;}
+.tl-t{font-size:12.5px;color:var(--sea);font-weight:600;padding-top:2px;text-align:right;padding-right:8px;font-variant-numeric:tabular-nums;}
+.tl-axis{position:relative;justify-self:center;width:18px;}
+.tl-axis::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line);transform:translateX(-50%);}
+.tl-dot{position:absolute;left:50%;top:6px;width:7px;height:7px;border-radius:50%;background:var(--paper);border:1.5px solid var(--sea);transform:translate(-50%,0);}
+.tl-dot.key{background:var(--brick);border-color:var(--brick);width:9px;height:9px;top:4px;}
+.tl-c{padding:0 0 22px 4px;min-width:0;}
+.tl-h{font-size:15px;font-weight:600;margin:0 0 3px;line-height:1.5;}
+.tl-d{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.7;}
+.tl-m{display:inline-block;font-size:11.5px;color:var(--sea);border:1px solid var(--line);padding:0 6px;margin-left:6px;vertical-align:1px;}
+
+/* ---------- food table ---------- */
+.tbwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13.5px;background:var(--paper);}
+th{background:var(--sea);color:var(--paper);font-weight:500;font-size:12px;letter-spacing:.06em;text-align:left;padding:9px 10px;}
+td{padding:11px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.6;}
+td.nm{font-weight:600;}
+td.money{font-variant-numeric:tabular-nums;color:var(--brick);white-space:nowrap;}
+tr:last-child td{border-bottom:none;}
+
+/* ---------- spot grid ---------- */
+.spots{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line);}
+.spot{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line-soft);}
+.spot-n{font-weight:600;font-size:14px;}
+.spot-d{font-size:12.5px;color:var(--muted);line-height:1.7;margin-top:2px;}
+.spot-p{font-size:12.5px;color:var(--brick);flex:none;white-space:nowrap;padding-top:2px;}
+.spot-p.free{color:var(--sea);}
+
+/* ---------- budget ---------- */
+.budget{background:var(--paper);border:1px solid var(--line);padding:20px 16px;}
+.bud-switch{display:flex;gap:8px;margin-bottom:6px;flex-wrap:wrap;}
+.bud-btn{
+  font:inherit;font-size:13px;padding:7px 12px;border:1px solid var(--line);
+  background:transparent;color:var(--ink-soft);cursor:pointer;border-radius:2px;
+  min-height:40px;
+}
+.bud-btn[aria-pressed="true"]{background:var(--sea);color:var(--paper);border-color:var(--sea);}
+.bud-hint{font-size:12.5px;color:var(--muted);margin:8px 0 18px;line-height:1.7;}
+.bud-row{margin-bottom:13px;}
+.bud-lab{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;margin-bottom:5px;gap:10px;}
+.bud-lab span:first-child{color:var(--ink-soft);}
+.bud-amt{font-variant-numeric:tabular-nums;font-weight:600;color:var(--sea);flex:none;}
+.bud-track{height:7px;background:var(--line-soft);position:relative;}
+.bud-fill{height:100%;background:var(--sea);width:0;transition:width .45s cubic-bezier(.2,.7,.3,1);}
+.bud-fill.brick{background:var(--brick);}
+.bud-total{margin-top:18px;padding-top:14px;border-top:2px solid var(--sea);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;}
+.bud-total-lab{font-size:13px;color:var(--muted);}
+.bud-total-vals{font-variant-numeric:tabular-nums;}
+.bud-total-sum{font-size:26px;font-weight:600;color:var(--sea);}
+.bud-total-cap{font-size:12.5px;color:var(--muted);margin-left:8px;}
+.bud-rest{font-size:13px;margin-top:10px;color:var(--ink-soft);}
+.bud-rest b{color:var(--brick);font-variant-numeric:tabular-nums;}
+.bud-rest.ok b{color:#2f6b4f;}
+
+/* ---------- pitfalls ---------- */
+.pit{list-style:none;padding:0;margin:0;counter-reset:p;}
+.pit li{
+  counter-increment:p;position:relative;padding:0 0 18px 34px;font-size:13.5px;line-height:1.8;
+  border-left:1px solid var(--line-soft);margin-left:10px;
+}
+.pit li:last-child{border-left:none;padding-bottom:0;}
+.pit li::before{
+  content:counter(p,decimal-leading-zero);
+  position:absolute;left:-11px;top:0;width:21px;height:21px;line-height:20px;text-align:center;
+  font-size:10.5px;color:var(--sea);background:var(--paper);border:1px solid var(--sea);border-radius:50%;
+}
+.pit b{color:var(--ink);font-weight:600;}
+
+/* ---------- checklist ---------- */
+.check{background:var(--paper);border:1px solid var(--line);padding:6px 16px 16px;}
+.chk{display:flex;align-items:flex-start;gap:11px;padding:12px 0;border-bottom:1px solid var(--line-soft);cursor:pointer;min-height:44px;}
+.chk:last-child{border-bottom:none;}
+.chk input{
+  -webkit-appearance:none;appearance:none;width:19px;height:19px;flex:none;margin:2px 0 0;
+  border:1px solid var(--line);border-radius:2px;background:var(--paper);cursor:pointer;position:relative;
+}
+.chk input:checked{background:var(--sea);border-color:var(--sea);}
+.chk input:checked::after{content:"";position:absolute;left:6px;top:2px;width:4px;height:9px;border-right:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(42deg);}
+.chk input:focus-visible{outline:2px solid var(--brick);outline-offset:2px;}
+.chk-t{font-size:13.5px;line-height:1.65;}
+.chk input:checked + .chk-t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line);}
+
+/* ---------- photo ---------- */
+.ph{margin:26px 0 0;border:1px solid var(--line);background:var(--paper);}
+.ph img{display:block;width:100%;height:auto;}
+.ph figcaption{font-size:12px;color:var(--muted);padding:8px 12px;border-top:1px solid var(--line-soft);line-height:1.6;}
+
+/* ---------- footer ---------- */
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.8;}
+
+/* ---------- wide ---------- */
+@media (min-width:768px){
+  body{font-size:15.5px;}
+  .wrap{padding:0 26px 90px;}
+  .hero-inner{padding:64px 26px 52px;}
+  .hero h1{font-size:46px;}
+  .facts-grid{grid-template-columns:repeat(4,1fr);}
+  .fact{border-bottom:none !important;}
+  .fact:nth-child(2n){padding-left:0;}
+  .fact:not(:last-child){border-right:1px solid var(--line-soft);}
+  .fact{padding:22px 16px 22px 0;}
+  .facts-grid .fact:nth-child(n+1){padding-left:0;}
+  .facts-grid .fact:not(:first-child){padding-left:20px;}
+  .tl{grid-template-columns:58px 22px 1fr;}
+  .spots{grid-template-columns:1fr 1fr;column-gap:28px;border-top:1px solid var(--line);}
+  .spot:nth-last-child(-n+1){border-bottom:1px solid var(--line-soft);}
+  .sec-title{font-size:26px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .bud-fill{transition:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<header class="hero" aria-label="行程封面">
+  <img class="hero-img" src="assets/zhanqiao.jpg" alt="清晨的青岛栈桥与海鸥">
+  <div class="hero-inner">
+    <div class="kicker">2026.11.27 周五夜车 — 11.29 周日返程</div>
+    <h1>郑州 → 青岛<span>两个人，合计 1500 元，卧铺去、白天玩</span></h1>
+    <p class="hero-note">周五下班后上车睡一觉，周六清晨落地青岛，两天满打满算。这份不是愿望清单，是照着时间点走就能走的行程表。</p>
+  </div>
+</header>
+
+<!-- ===== 关键信息条 ===== -->
+<div class="facts">
+  <div class="facts-inner">
+    <div class="facts-grid">
+      <div class="fact"><span class="fact-k">去程</span><div class="fact-v">Z316 · 19:04</div><span class="fact-s">郑州站发车，次日 05:30 到红岛</span></div>
+      <div class="fact"><span class="fact-k">回程</span><div class="fact-v">Z272 · 14:42</div><span class="fact-s">青岛北发车，次日 00:54 到郑州</span></div>
+      <div class="fact"><span class="fact-k">住一晚</span><div class="fact-v">老城 170 元</div><span class="fact-s">栈桥步行圈，双人间</span></div>
+      <div class="fact"><span class="fact-k">两人合计</span><div class="fact-v">约 1463 元</div><span class="fact-s">上限 1500，余 37 元</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="verdict">
+    <h3>先说结论：1500 元两人，高铁是走不通的</h3>
+    <p>郑州东往返青岛的高铁二等座，两人合计约 <strong>1442 元</strong>——票买完，住宿、吃饭、门票一分不剩。</p>
+    <p>所以这个预算只有一条路：<strong>夕发朝至的普速卧铺</strong>。两人往返硬卧约 930 元，省下的钱刚好覆盖一晚房、两天饭和一点门票。代价是车上睡一晚、回程到郑州已过午夜。</p>
+  </div>
+
+  <!-- ===== 01 行前 ===== -->
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">出发前必须定下来的三件事</h2></div>
+    <p class="sec-sub">这三件不定，后面所有时间点都对不上。</p>
+    <div class="pit-list">
+      <ol class="pit">
+        <li><b>周五 18:30 前到郑州站，不是郑州东站。</b>Z316 从二七区的郑州站发车，地铁 1 号线「郑州火车站」站出来就是。赶不上就整趟作废——这一班是当天最后一趟能到青岛的过夜车。</li>
+        <li><b>卧铺票要尽早买。</b>硬卧上铺 232.5 元，两人往返约 930。这趟车卧铺常年偏紧，提前十天开抢，买到中下铺最好，上铺也能睡。</li>
+        <li><b>回程席别现在就选。</b>硬卧回程两人 930 元总额刚好卡死预算；硬座回程两人 271 元，能省出 194 元去吃一顿好的、或者进啤酒博物馆。这决定了你周日能多松快。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== 02 交通 ===== -->
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">交通：两趟车 + 一次进城</h2></div>
+    <p class="sec-sub">价格按 2026-11-10 查询，出行前请在 12306 复核一次，淡旺季会有浮动。</p>
+
+    <!-- 去程 -->
+    <div class="tcard">
+      <div class="tcard-top"><span class="tcard-tag">去程 · 周五夜</span><span class="tcard-day">11.27 周五</span></div>
+      <div class="route">
+        <div class="route-l"><div class="route-time">19:04</div><div class="route-st">郑州站</div></div>
+        <div class="route-mid"><div class="route-dur">10 时 26 分</div><div class="route-line"></div><div class="route-dur">过夜</div></div>
+        <div class="route-r"><div class="route-time">05:30</div><div class="route-st">红岛站 · 次日</div></div>
+      </div>
+      <div class="tcard-body">
+        <div class="trow"><span>硬卧（上 / 中 / 下）</span><b>232.5 / 240.5 / 247.5</b></div>
+        <div class="trow"><span>硬座</span><b>135.5</b></div>
+        <div class="trow"><span>两人硬卧合计</span><b>465 元</b></div>
+        <p class="tnote">备选 Z274：郑州站 17:11 → 青岛北 05:07，同样是硬卧 232.5。它的到站是青岛北（离市区更近），但 17:11 发车意味着周五要提前两小时下班。能早退就选它，最省心。</p>
+      </div>
+    </div>
+
+    <!-- 进城 -->
+    <div class="tcard">
+      <div class="tcard-top"><span class="tcard-tag">进城 · 周六清晨</span><span class="tcard-day">约 55 分钟 · 6 元/人</span></div>
+      <div class="route">
+        <div class="route-l"><div class="route-time">05:40</div><div class="route-st">红岛站</div></div>
+        <div class="route-mid"><div class="route-dur">地铁 8 号线</div><div class="route-line"></div><div class="route-dur">换 3 号线</div></div>
+        <div class="route-r"><div class="route-time">06:40</div><div class="route-st">青岛站</div></div>
+      </div>
+      <div class="tcard-body">
+        <div class="trow"><span>路线</span><b>红岛 → 青岛北 → 3 号线 → 青岛站</b></div>
+        <div class="trow"><span>首班车</span><b>红岛站 06:00 前后发车</b></div>
+        <p class="tnote">红岛站在城阳，离老城不近，但这段早高峰前的地铁空得很。到青岛站出站就是栈桥，行李直接拖过去。</p>
+      </div>
+    </div>
+
+    <!-- 回程 -->
+    <div class="tcard">
+      <div class="tcard-top"><span class="tcard-tag">回程 · 周日午后</span><span class="tcard-day">11.29 周日</span></div>
+      <div class="route">
+        <div class="route-l"><div class="route-time">14:42</div><div class="route-st">青岛北站</div></div>
+        <div class="route-mid"><div class="route-dur">10 时 12 分</div><div class="route-line"></div><div class="route-dur">过夜</div></div>
+        <div class="route-r"><div class="route-time">00:54</div><div class="route-st">郑州站 · 次日</div></div>
+      </div>
+      <div class="tcard-body">
+        <div class="trow"><span>硬卧</span><b>232.5 / 240.5 / 247.5</b></div>
+        <div class="trow"><span>硬座</span><b>135.5</b></div>
+        <div class="trow"><span>两人硬卧合计</span><b>465 元</b></div>
+        <div class="trow"><span>两人硬座合计</span><b>271 元</b></div>
+        <p class="tnote">更早的 Z318 是 13:06 青岛北发车、23:27 到郑州，能赶上周日夜里睡觉，但 Day 2 上午只剩四小时，八大关就得砍掉一半。想多玩就选 14:42 这班，代价是到郑州已过午夜、打车回家。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 住宿 ===== -->
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">住哪：老城 170 元一晚</h2></div>
+    <p class="sec-sub">只住一晚，位置比档次重要——要能放下行李、能走着去栈桥、能半夜回得来。</p>
+    <div class="spots">
+      <div class="spot"><div><div class="spot-n">栈桥 / 中山路一带（推荐）</div><div class="spot-d">淡季双人间 170–200 元，火车站步行可达。清晨到青岛站后直接寄存行李，晚上从台东地铁 1 号线 8 分钟回来。</div></div><div class="spot-p">170–200</div></div>
+      <div class="spot"><div><div class="spot-n">台东商圈</div><div class="spot-d">便宜 10–20 元，夜市就在楼下。但清晨拖着行李从红岛过来要换两趟地铁，不值。</div></div><div class="spot-p">160–190</div></div>
+      <div class="spot"><div><div class="spot-n">青旅双人间</div><div class="spot-d">两人一千五的兜底选项，150 元左右能拿下。缺点是没独立卫浴、行李寄存要看前台时间。</div></div><div class="spot-p">140–160</div></div>
+      <div class="spot"><div><div class="spot-n">别订的</div><div class="spot-d">「海景房」低价链接多是隔着一排楼的缝隙海，图片广角拉出来的。十一月海风大，住海边反而冷。</div></div><div class="spot-p">避开</div></div>
+    </div>
+    <figure class="ph">
+      <img src="assets/badaguan.jpg" alt="八大关街道的银杏与红顶老别墅" loading="lazy">
+      <figcaption>八大关的银杏期在 11 月中下旬，正好是你到的那两天——Day 2 上午就耗在这里。</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===== 04 Day1 ===== -->
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Day 1 · 周六 11.28</h2></div>
+    <p class="sec-sub">从火车上醒来开始，一路走到夜里。这一天全程不坐车，靠腿和地铁。</p>
+    <div class="tl">
+      <div class="tl-t">05:30</div><div class="tl-axis"><span class="tl-dot key"></span></div>
+      <div class="tl-c"><h4 class="tl-h">红岛站下车<span class="tl-m">天还没亮</span></h4><p class="tl-d">洗漱、出站，跟着指示牌走地铁 8 号线。这个点站里人很少。</p></div>
+
+      <div class="tl-t">06:45</div><div class="tl-axis"><span class="tl-dot key"></span></div>
+      <div class="tl-c"><h4 class="tl-h">栈桥 · 日出与海鸥</h4><p class="tl-d">十一月末日出在 6:50 左右，从青岛站出来正好赶上天光。清晨栈桥上几乎没人，海鸥成群贴着回澜阁飞——这是全程最好的一个画面，也是这个点出发唯一的补偿。</p></div>
+
+      <div class="tl-t">07:40</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">早餐 · 中山路一带</h4><p class="tl-d">甜沫配锅贴，或者豆腐脑加油条，人均 15 元。挑人多的那家进。</p></div>
+
+      <div class="tl-t">08:40</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">酒店寄存行李</h4><p class="tl-d">还没到入住时间，先跟前台说好寄存。轻装出门，今天走的路不少。</p></div>
+
+      <div class="tl-t">09:10</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">圣弥厄尔教堂 + 中山路</h4><p class="tl-d">教堂外观免费，进去看要 10 元/人——这次跳过。中山路的骑楼和老字号门脸值得慢慢走一段。</p></div>
+
+      <div class="tl-t">10:00</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">劈柴院 · 走一圈</h4><p class="tl-d">白天比较冷清，更适合看建筑。别在这儿吃正餐，价格比外面贵三成。</p></div>
+
+      <div class="tl-t">10:35</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">信号山公园</h4><p class="tl-d">公园免费，6:00–20:00 开放。山顶看红瓦绿树的老城全景，是整个市区最好的机位。旋转观景楼 15 元/人——这个钱可以省，站在山上平台拍一样出片。</p></div>
+
+      <div class="tl-t">11:30</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">小鱼山</h4><p class="tl-d">免费，6:00–20:00。从信号山走过来十来分钟，两个山头看的是同一片老城，取景角度不同，都值得去。</p></div>
+
+      <div class="tl-t">12:15</div><div class="tl-axis"><span class="tl-dot key"></span></div>
+      <div class="tl-c"><h4 class="tl-h">午饭 · 来之顺海鲜菜馆</h4><p class="tl-d">湖北路店，人均 66 元。辣炒蛤蜊、鲅鱼饺子、海菜凉粉各来一份，两人一百三左右，是这两天唯一一顿正经海鲜。</p></div>
+
+      <div class="tl-t">13:30</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">大学路红墙 + 老舍故居</h4><p class="tl-d">红墙拐角是青岛最出名的拍照点，工作日中午人不多。故居免费，进去看十分钟。</p></div>
+
+      <div class="tl-t">14:20</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">鲁迅公园 → 琴屿路 → 小青岛</h4><p class="tl-d">沿海边一路走过去，全免费。琴屿路那段是贴着海的车道，日落前光线最好。</p></div>
+
+      <div class="tl-t">15:40</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">回酒店入住，歇一小时</h4><p class="tl-d">这是必须留的一段。整夜卧铺加一整天步行，不睡这一觉，晚上逛不动。</p></div>
+
+      <div class="tl-t">17:00</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">地铁 1 号线去台东</h4><p class="tl-d">8 分钟，3 元。台东是青岛本地人吃饭逛街的地方，比劈柴院便宜实在。</p></div>
+
+      <div class="tl-t">17:30</div><div class="tl-axis"><span class="tl-dot key"></span></div>
+      <div class="tl-c"><h4 class="tl-h">台东晚饭</h4><p class="tl-d">小馆子解决，人均 50–60。蛤蜊、笔管鱼、炒海肠都是这个季节的。</p></div>
+
+      <div class="tl-t">19:30</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">台东夜市</h4><p class="tl-d">烤鱿鱼、炸脂渣、袋装原浆。人均 40 能吃到撑，别一家吃饱，边走边吃。</p></div>
+
+      <div class="tl-t">21:00</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">回栈桥，看夜里的海</h4><p class="tl-d">地铁回青岛站，栈桥走五分钟。夜里的海风很硬，围巾一定带上。</p></div>
+    </div>
+  </section>
+
+  <!-- ===== 05 Day2 ===== -->
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Day 2 · 周日 11.29</h2></div>
+    <p class="sec-sub">半天时间，全部给八大关。中午撤，赶 14:42 的车。</p>
+    <div class="tl">
+      <div class="tl-t">07:30</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">退房，行李寄存前台</h4><p class="tl-d">如果前一晚已经结账，直接把包放前台，回来取。</p></div>
+
+      <div class="tl-t">08:00</div><div class="tl-axis"><span class="tl-dot key"></span></div>
+      <div class="tl-c"><h4 class="tl-h">八大关</h4><p class="tl-d">街区免费。重点走居庸关路、山海关路，银杏和红顶别墅配着来。花石楼 8.5 元/人，是最值的一个收费点，进去看海景露台。公主楼、蝴蝶楼外观足够，别买票。</p></div>
+
+      <div class="tl-t">09:50</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">第二海水浴场</h4><p class="tl-d">免费。十一月的沙滩没人，可以沿着水线走一段，风大但很干净。</p></div>
+
+      <div class="tl-t">10:30</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">太平角木栈道</h4><p class="tl-d">从二浴沿海走到太平角，栈道贴海，是本地人散步的路。</p></div>
+
+      <div class="tl-t">11:00</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">午饭 · 八大关一带</h4><p class="tl-d">简单吃，人均 40。别点大菜，饭后要坐十小时车。</p></div>
+
+      <div class="tl-t">12:20</div><div class="tl-axis"><span class="tl-dot key"></span></div>
+      <div class="tl-c"><h4 class="tl-h">取行李 → 太平角公园站上车</h4><p class="tl-d">地铁 3 号线直达青岛北，约 25 分钟。这一站是 3 号线，别走错到别的线。</p></div>
+
+      <div class="tl-t">13:00</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">青岛北站 · 补给</h4><p class="tl-d">站里便利店买水、面包、水果。十小时车，晚饭就在车上解决，别指望餐车便宜。</p></div>
+
+      <div class="tl-t">14:42</div><div class="tl-axis"><span class="tl-dot key"></span></div>
+      <div class="tl-c"><h4 class="tl-h">Z272 发车</h4><p class="tl-d">餐车在 14 车。卧铺乘客早点铺床，这趟车晚上十一点后熄灯。</p></div>
+
+      <div class="tl-t">00:54</div><div class="tl-axis"><span class="tl-dot"></span></div>
+      <div class="tl-c"><h4 class="tl-h">到郑州站，回家</h4><p class="tl-d">午夜出站，地铁已停运，提前想好打车还是让家人接。周一上班会困，这一天别安排事。</p></div>
+    </div>
+  </section>
+
+  <!-- ===== 06 必吃 ===== -->
+  <section>
+    <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">必吃：五样，一顿都不浪费</h2></div>
+    <p class="sec-sub">按人均从低到高排，括号里是建议点法。</p>
+    <div class="tbwrap">
+      <table>
+        <colgroup><col style="width:31%"><col style="width:20%"><col style="width:24%"><col style="width:25%"></colgroup>
+        <thead><tr><th>吃什么</th><th>人均</th><th>在哪</th><th>点法</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">辣炒蛤蜊</td><td class="money">60–70</td><td>来之顺（湖北路店）</td><td>配鲅鱼饺子，两人一份蛤蜊一份饺子刚好</td></tr>
+          <tr><td class="nm">鲅鱼饺子</td><td class="money">含上</td><td>同上 / 双合园</td><td>按两卖，一人二两，别点整盘</td></tr>
+          <tr><td class="nm">甜沫 + 锅贴</td><td class="money">15</td><td>中山路早点摊</td><td>青岛人的早饭，咸口糊糊，第一次喝会愣一下</td></tr>
+          <tr><td class="nm">烤鱿鱼 / 炸脂渣</td><td class="money">40</td><td>台东夜市</td><td>边走边吃，鱿鱼挑现烤的，脂渣买小份</td></tr>
+          <tr><td class="nm">原浆啤酒</td><td class="money">15–20/杯</td><td>台东 / 登州路</td><td>袋装原浆最划算，别在景区里喝</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== 07 打卡点 ===== -->
+  <section>
+    <div class="sec-head"><span class="sec-num">07</span><h2 class="sec-title">打卡点：免费的占九成</h2></div>
+    <p class="sec-sub">右列是这一版实际要花的钱。想加啤酒博物馆（60 元/人）的话，只有走「回程硬座」方案才腾得出来。</p>
+    <div class="spots">
+      <div class="spot"><div><div class="spot-n">栈桥 · 回澜阁</div><div class="spot-d">清晨与海鸥，全程最好的画面。全天开放。</div></div><div class="spot-p free">免费</div></div>
+      <div class="spot"><div><div class="spot-n">信号山公园</div><div class="spot-d">看老城全景，观景楼 15 元可省。</div></div><div class="spot-p free">免费</div></div>
+      <div class="spot"><div><div class="spot-n">小鱼山</div><div class="spot-d">另一个角度看红瓦，人比信号山少。</div></div><div class="spot-p free">免费</div></div>
+      <div class="spot"><div><div class="spot-n">八大关</div><div class="spot-d">街区免费，银杏正当季。</div></div><div class="spot-p free">免费</div></div>
+      <div class="spot"><div><div class="spot-n">花石楼</div><div class="spot-d">八大关唯一建议买票的点，海景露台。</div></div><div class="spot-p">8.5/人</div></div>
+      <div class="spot"><div><div class="spot-n">小青岛 · 琴屿路</div><div class="spot-d">沿海步行线，日落光线最好。</div></div><div class="spot-p free">免费</div></div>
+      <div class="spot"><div><div class="spot-n">圣弥厄尔教堂</div><div class="spot-d">外观免费，入内 10 元，这版跳过。</div></div><div class="spot-p free">免费</div></div>
+      <div class="spot"><div><div class="spot-n">第二海水浴场</div><div class="spot-d">淡季无人，适合走水线。</div></div><div class="spot-p free">免费</div></div>
+      <div class="spot"><div><div class="spot-n">大学路红墙</div><div class="spot-d">经典机位，中午人最少。</div></div><div class="spot-p free">免费</div></div>
+      <div class="spot"><div><div class="spot-n">青岛啤酒博物馆</div><div class="spot-d">60 元/人需预约，11–4 月 16:30 闭馆。这版不进。</div></div><div class="spot-p">加项 60/人</div></div>
+    </div>
+  </section>
+
+  <!-- ===== 08 预算 ===== -->
+  <section>
+    <div class="sec-head"><span class="sec-num">08</span><h2 class="sec-title">预算：两个人，一共多少</h2></div>
+    <p class="sec-sub">两套方案，差额只在回程坐硬卧还是硬座。</p>
+
+    <div class="budget">
+      <div class="bud-switch" role="group" aria-label="选择返程席别方案">
+        <button class="bud-btn" type="button" data-plan="a" aria-pressed="true">方案 A · 往返硬卧</button>
+        <button class="bud-btn" type="button" data-plan="b" aria-pressed="false">方案 B · 回程硬座</button>
+        <button class="bud-btn" type="button" data-plan="avg" aria-pressed="false">两人合计</button>
+      </div>
+      <p class="bud-hint" id="budHint">往返都睡卧铺，最舒服，但预算一点余量都没有。</p>
+
+      <div id="budRows"></div>
+
+      <div class="bud-total">
+        <span class="bud-total-lab" id="budTotalLab">两人合计</span>
+        <div class="bud-total-vals"><span class="bud-total-sum" id="budSum">0</span><span class="bud-total-cap">元 / 上限 1500</span></div>
+      </div>
+      <div class="bud-rest" id="budRest"></div>
+    </div>
+  </section>
+
+  <!-- ===== 09 避坑 ===== -->
+  <section>
+    <div class="sec-head"><span class="sec-num">09</span><h2 class="sec-title">这一版特有的八个坑</h2></div>
+    <p class="sec-sub">夜车方案比白天高铁多出一堆细节，都是踩过才知道的。</p>
+    <ol class="pit">
+      <li><b>郑州站 ≠ 郑州东站。</b>两个站在城里两头，坐错站等于整趟作废。地铁 1 号线到「郑州火车站」，不是「郑州东站」。</li>
+      <li><b>05:30 到红岛，别指望酒店能入住。</b>提前跟前台讲好「只寄存行李」，不然拖着箱子在街上晃两小时。</li>
+      <li><b>卧铺带三样东西。</b>耳塞、眼罩、一件长袖。车厢凌晨温度会掉，硬卧上铺尤其冷。</li>
+      <li><b>车上别吃餐车。</b>四十块一份的盒饭，自己带面包、水果、桶面，两天省下的钱够一顿海鲜。</li>
+      <li><b>周五晚这班是末班。</b>Z316 之后郑州就没有能过夜到青岛的车了，误点没有补救方案，只能改周六一早的高铁（票价 339/人，预算直接爆）。</li>
+      <li><b>回程 00:54 到郑州站，地铁已停。</b>出站前就想好打车路线，或者提前跟家人约好接。</li>
+      <li><b>十一月的青岛比郑州冷得多。</b>5–13℃，海边体感再低 2℃。防风外套、围巾、能走长路的鞋，三样都不能少。</li>
+      <li><b>所有票价与时刻以 12306 为准。</b>本页数据查于 2026-11-10，周五周六属周末，卧铺紧张、房价上浮，越早订越稳。</li>
+    </ol>
+  </section>
+
+  <!-- ===== 10 清单 ===== -->
+  <section>
+    <div class="sec-head"><span class="sec-num">10</span><h2 class="sec-title">出发前打勾</h2></div>
+    <p class="sec-sub">勾选会存在这台设备上，关掉页面再打开还在。</p>
+    <div class="check" id="checklist">
+      <label class="chk"><input type="checkbox" data-k="t1"><span class="chk-t">买好 Z316 郑州→红岛 硬卧两张（11.27，19:04）</span></label>
+      <label class="chk"><input type="checkbox" data-k="t2"><span class="chk-t">买好回程 Z272 青岛北→郑州 两张（11.29，14:42），并确认是硬卧还是硬座</span></label>
+      <label class="chk"><input type="checkbox" data-k="t3"><span class="chk-t">订好老城双人间一晚（11.28），确认可提前寄存行李</span></label>
+      <label class="chk"><input type="checkbox" data-k="t4"><span class="chk-t">下载青岛地铁 App，或备好交通卡</span></label>
+      <label class="chk"><input type="checkbox" data-k="t5"><span class="chk-t">收拾：耳塞、眼罩、长袖、防风外套、围巾、运动鞋</span></label>
+      <label class="chk"><input type="checkbox" data-k="t6"><span class="chk-t">车上食物：面包、水果、桶面、水</span></label>
+      <label class="chk"><input type="checkbox" data-k="t7"><span class="chk-t">周五 18:30 前到郑州站（地铁 1 号线「郑州火车站」）</span></label>
+      <label class="chk"><input type="checkbox" data-k="t8"><span class="chk-t">周日 00:54 到郑州站后的回家方案（打车 / 家人接）</span></label>
+    </div>
+  </section>
+
+  <footer>
+    <p>票价、时刻查于 2026-11-10，来源为携程 / 去哪儿 / 同程公开车次页，出行前请以 12306 实时查询为准。景点开放时间与门票参考青岛本地宝同期公示。</p>
+    <p>本页为静态行程单，清单勾选保存在本机浏览器，不涉及任何上传。</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var PLANS = {
+    a: {
+      label: "两人合计",
+      hint: "往返都睡卧铺，最舒服，但预算一点余量都没有。",
+      items: [
+        {n:"去程 Z316 硬卧（2 人）", v:465},
+        {n:"回程 Z272 硬卧（2 人）", v:465},
+        {n:"住宿 1 晚（双人间）", v:170},
+        {n:"餐饮 2 天（2 人）", v:365},
+        {n:"市内交通（地铁为主）", v:45},
+        {n:"门票（花石楼 2 人）", v:17}
+      ]
+    },
+    b: {
+      label: "两人合计",
+      hint: "回程改硬座，多坐一晚但省 194 元，够加啤酒博物馆或者一顿正经海鲜。",
+      items: [
+        {n:"去程 Z316 硬卧（2 人）", v:465},
+        {n:"回程 Z272 硬座（2 人）", v:271},
+        {n:"住宿 1 晚（双人间）", v:170},
+        {n:"餐饮 2 天（2 人）", v:365},
+        {n:"市内交通（地铁为主）", v:45},
+        {n:"门票（花石楼 2 人）", v:17}
+      ]
+    }
+  };
+  var CAP = 1500;
+  var rowsEl = document.getElementById("budRows");
+  var sumEl = document.getElementById("budSum");
+  var restEl = document.getElementById("budRest");
+  var hintEl = document.getElementById("budHint");
+  var labEl = document.getElementById("budTotalLab");
+  var btns = document.querySelectorAll(".bud-btn");
+  var mode = "a";
+
+  function render(){
+    var plan = PLANS[mode];
+    var total = 0;
+    var html = "";
+    plan.items.forEach(function(it){
+      total += it.v;
+    });
+    plan.items.forEach(function(it){
+      var pct = Math.min(100, (it.v / CAP) * 100);
+      var big = it.v >= 400;
+      html += '<div class="bud-row">' +
+        '<div class="bud-lab"><span>' + it.n + '</span><span class="bud-amt">' + it.v + ' 元</span></div>' +
+        '<div class="bud-track"><div class="bud-fill' + (big ? ' brick' : '') + '" style="width:' + pct.toFixed(1) + '%"></div></div>' +
+        '</div>';
+    });
+    rowsEl.innerHTML = html;
+
+    var per = Math.round(total / 2);
+    labEl.textContent = plan.label;
+    sumEl.textContent = total;
+    var rest = CAP - total;
+    restEl.className = "bud-rest" + (rest >= 100 ? " ok" : "");
+    restEl.innerHTML = rest >= 0
+      ? "人均 " + per + " 元，预算还剩 <b>" + rest + " 元</b>" + (rest < 60 ? "——基本没有机动空间，少吃一顿大排档就超了。" : "，够加一顿好的或买点伴手礼。")
+      : "超预算 <b>" + Math.abs(rest) + " 元</b>，需要从餐饮或住宿里再压。";
+    hintEl.textContent = plan.hint;
+  }
+
+  btns.forEach(function(b){
+    b.addEventListener("click", function(){
+      var p = b.getAttribute("data-plan");
+      mode = p === "b" ? "b" : "a";
+      btns.forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      render();
+    });
+  });
+
+  render();
+
+  // 清单持久化
+  var KEY = "qd-trip-2026-checklist";
+  var boxes = document.querySelectorAll("#checklist input[type=checkbox]");
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ saved = {}; }
+  boxes.forEach(function(box){
+    if (saved[box.getAttribute("data-k")]) box.checked = true;
+    box.addEventListener("change", function(){
+      var state = {};
+      boxes.forEach(function(b){ if (b.checked) state[b.getAttribute("data-k")] = 1; });
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>
